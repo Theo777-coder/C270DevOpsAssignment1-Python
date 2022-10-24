@@ -1,12 +1,11 @@
-# syntax=docker/dockerfile:1
+FROM python:3.8
 
-FROM python:3.8-slim-buster
+ENV SRC_DIR /usr/bin/src/webapp/src
 
-WORKDIR /app
+COPY src/* ${SRC_DIR}/
 
-COPY requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
+WORKDIR ${SRC_DIR}
 
-COPY . .
+ENV PYTHONUNBUFFERED=1
 
-CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
+CMD ["python", "py_server.py"]
