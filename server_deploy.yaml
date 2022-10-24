@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: py-basic-server
+  labels:
+    app: simple_server
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: simple_server
+  template:
+    metadata:
+      labels:
+        app: simple_server
+    spec:
+      containers:
+      - name: py-basic-server
+        image: simple_server
+        ports:
+        - containerPort: 8000
