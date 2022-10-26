@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   name: py-basic-server
   labels:
-    app: simple_server
+    app: theo777c270/simple_server
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: simple_server
+      app: theo777c270/simple_server
   template:
     metadata:
       labels:
-        app: simple_server
+        app: theo777c270/simple_server
     spec:
       containers:
       - name: py-basic-server
-        image: simple_server
+        image: theo777c270/simple_server
         ports:
         - containerPort: 8000
